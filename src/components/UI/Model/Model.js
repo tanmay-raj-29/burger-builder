@@ -7,7 +7,11 @@ class model extends Component {
 
 
     shouldComponentUpdate(nextProps,nextState) {
+<<<<<<< HEAD
         return (nextProps.show !== this.props.show) || nextProps.children !== this.props.children;
+=======
+        return (nextProps.show !== this.props.show) ;
+>>>>>>> 0dd51eaa00aae63e0bc3f0f2b998e0974e053b95
     }
     
   render() {

@@ -4,9 +4,12 @@ import Burger from "../../components/Burger/Burger";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls";
 import Model from "../../components/UI/Model/Model";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
+<<<<<<< HEAD
 import axios from "../../axios-orders";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import withErrorHandler from "../..//hoc/withErrorHandler/withErrorHandler";
+=======
+>>>>>>> 0dd51eaa00aae63e0bc3f0f2b998e0974e053b95
 
 const INGREDIENTS_PRICE = {
   salad: 0.5,
@@ -17,6 +20,7 @@ const INGREDIENTS_PRICE = {
 
 class BurgerBuilder extends Component {
   state = {
+<<<<<<< HEAD
     ingredients: null,
     totalPrice: 4,
     purchasable: false,
@@ -35,6 +39,19 @@ class BurgerBuilder extends Component {
       ;
   }
 
+=======
+    ingredients: {
+      salad: 0,
+      bacon: 0,
+      cheese: 0,
+      meat: 0,
+    },
+    totalPrice: 4,
+    purchasable: false,
+    purchasing: false,
+  };
+
+>>>>>>> 0dd51eaa00aae63e0bc3f0f2b998e0974e053b95
   updatePurchaseState(ingredients) {
     const sum = Object.keys(ingredients)
       .map((key) => {
@@ -53,6 +70,7 @@ class BurgerBuilder extends Component {
   };
 
   purchaseContinuedHandler = () => {
+<<<<<<< HEAD
     // alert("You Continue!");
     this.setState({ loading: true });
     const order = {
@@ -76,6 +94,9 @@ class BurgerBuilder extends Component {
         this.setState({ loading: false, purchasing: false });
         console.log(err);
       });
+=======
+    alert("You Continue!");
+>>>>>>> 0dd51eaa00aae63e0bc3f0f2b998e0974e053b95
   };
 
   addIngredientHandler = (type) => {
@@ -105,6 +126,7 @@ class BurgerBuilder extends Component {
       disabledInfo[key] = disabledInfo[key] <= 0;
     }
 
+<<<<<<< HEAD
     let orderSummary = null;
 
     let burger = this.state.error? <p>Ingredients can't be loaded</p> : <Spinner />;
@@ -135,18 +157,43 @@ class BurgerBuilder extends Component {
       orderSummary = <Spinner />;
     }
 
+=======
+>>>>>>> 0dd51eaa00aae63e0bc3f0f2b998e0974e053b95
     return (
       <Aux>
         <Model
           show={this.state.purchasing}
           modelClosed={this.purchaseCancelledHandler}
         >
+<<<<<<< HEAD
           {orderSummary}
         </Model>
         {burger}
+=======
+          <OrderSummary
+            price={this.state.totalPrice}
+            ingredients={this.state.ingredients}
+            purchaseCancelled={this.purchaseCancelledHandler}
+            purchaseContinued={this.purchaseContinuedHandler}
+          />
+        </Model>
+        <Burger ingredients={this.state.ingredients} />
+        <BuildControls
+          ordered={this.purchaseHandler}
+          price={this.state.totalPrice}
+          ingredientAdded={this.addIngredientHandler}
+          ingredientRemoved={this.removeIngredientHandler}
+          disabled={disabledInfo}
+          purchasable={this.state.purchasable}
+        />
+>>>>>>> 0dd51eaa00aae63e0bc3f0f2b998e0974e053b95
       </Aux>
     );
   }
 }
 
+<<<<<<< HEAD
 export default withErrorHandler(BurgerBuilder, axios);
+=======
+export default BurgerBuilder;
+>>>>>>> 0dd51eaa00aae63e0bc3f0f2b998e0974e053b95
