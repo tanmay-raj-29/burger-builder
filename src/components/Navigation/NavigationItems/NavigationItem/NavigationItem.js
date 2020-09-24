@@ -1,9 +1,10 @@
 import React from "react";
 import stlyes from "./NavigationItem.module.css";
+import {NavLink} from "react-router-dom";
 
 const navigationItem = (props) => (
   <li className={stlyes.NavigationItem}>
-    <a className={props.active?stlyes.active:null} href={props.link}>{props.children}</a>
+    <NavLink activeClassName={stlyes.active} exact={props.exact} to={props.link}>{props.children}</NavLink>
   </li>
 );
 
